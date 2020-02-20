@@ -21,20 +21,34 @@ import sys
 # recursive helper function, don't forget to make an initial call to the recursive helper function to kick off the
 # recursion.
 def rock_paper_scissors(n):
-    # 3^n (except 0, the base case). List of n elements.
-    if n == 0:
-        return [[]]
-    rock = ['rock']
-    paper = ['paper']
-    scissors = ['scissors']
-    def rps_recurse():
-        # Inner recursive helper
-        
-    rps_recurse(rock)
-    rps_recurse(paper)
-    rps_recurse(scissors)
+    # 3^n (except 0, the base case). Pattern is Tribonacci
+    outcomes = []
+    plays = ['rock', 'paper', 'scissors']
 
-    return rps_recurse()
+    def find_outcome(num_of_rounds_left, result):
+        if num_of_rounds_left == 0:
+            outcomes.append(result)
+            return
+        for play in plays:
+            find_outcome(num_of_rounds_left - 1, result + [play])
+
+    find_outcome(n, [])
+    return outcomes
+
+
+def rock_paper_scissors_iterative(n):
+    output = []
+    possible_plays = ['scissors', 'paper', 'rock']
+    stack = []
+    stack.append([])
+    while len(stack) > 0:
+        hand = stack.pop()
+        if n == 0 or len(hand) == n:
+            output.append(hand)
+        else:
+            for play in possible_plays:
+                stack.append(hand + [play])
+    return output
 
 
 if __name__ == "__main__":
