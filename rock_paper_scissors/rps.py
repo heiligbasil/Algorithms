@@ -1,15 +1,15 @@
 import sys
 
 
-# Write a function rock_paper_scissors to generate all of the possible plays that can be made in a game of "Rock
-# Paper Scissors", given some input n, which represents the number of plays per round.
+# Write a function rock_paper_scissors to generate all of the possible plays that can be made in a game of
+# "Rock Paper Scissors", given some input n, which represents the number of plays per round.
 #
 # For example, given n = 2, your function should output the following:
 #
 # [['rock', 'rock'], ['rock', 'paper'], ['rock', 'scissors'], ['paper', 'rock'], ['paper', 'paper'], ['paper',
 # 'scissors'], ['scissors', 'rock'], ['scissors', 'paper'], ['scissors', 'scissors']]
-# Your output should be a list of lists containing strings.
-# Each inner list should have length equal to the input n.
+#
+# Your output should be a list of lists containing strings. Each inner list should have length equal to the input n.
 #
 # Hint: You'll want to define a list with all of the possible Rock Paper Scissors plays. Another problem that asks
 # you to generate a bunch of permutations, so we're probably going to want to opt for using recursion again. Since
@@ -21,7 +21,20 @@ import sys
 # recursive helper function, don't forget to make an initial call to the recursive helper function to kick off the
 # recursion.
 def rock_paper_scissors(n):
-    pass
+    # 3^n (except 0, the base case). List of n elements.
+    if n == 0:
+        return [[]]
+    rock = ['rock']
+    paper = ['paper']
+    scissors = ['scissors']
+    def rps_recurse():
+        # Inner recursive helper
+        
+    rps_recurse(rock)
+    rps_recurse(paper)
+    rps_recurse(scissors)
+
+    return rps_recurse()
 
 
 if __name__ == "__main__":
